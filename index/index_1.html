@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="jquery.check.mobile.js"></script>
+<script type="text/javascript" src="jquery.mobile.code.mobile.js"></script>
+<script type="text/javascript" src="filesaver.js"></script>
+
+
+<script type="text/javascript">
+var base_domain = document.domain.replace(/^.*?\./,'');
+document.domain = base_domain;
+$(function() {
+	$('form').jCheck({elements:['code','vcode']});
+	$('form').jSendMobileCode();
+	$(".li_verify_icon a").click(function(){
+		$("#img").attr('src','/vcode.php?'+Math.random()*10000);
+	})
+	$(".error_btn").click(function(){
+		$(".error_box").hide();
+	});
+	$(".notice_but").click(function(){
+		$('.inform_box').show();
+		$('.notice_but').hide();
+	});
+	
+	$(".open_win span input[name='btn']").click(function(){
+		var url      = window.location.href;
+		window.location.href = url + "?action=savetext&c="+kaice_code;
+		
+		$(".open_win").hide();
+		$(".save_win").show();
+		});
+
+	$(".save_win span input[name='btn']").click(window.parent.closemsgbox);
+	
+});
+</script>
+
+<link rel="stylesheet" type="text/css" href="index_1.css" media="all">
+</head>
+<body class="body_usercenter" style="background-color: transparent;">
+<!-- phone_bounced{ -->
+<form action="http://user.tianmingxy.com/act/mobile/mobile.php" method="post" id="form2">
+	<div class="call_box">
+		
+		<div class="call_right fl">
+			<div class="notice_but"></div>
+			<div class="inform_box posr fl">
+				<div class="posa fill_in_inform">
+					<ul>
+					 <li class="li_text">请输入您的手机号码：</li>
+					 <li class="li_import"><input id="mobile" name="mobile" value="请输入您的手机号码"></li>
+					 <li class="li_affirm_but"><input id="button" value="发送验证码" type="button"></li>
+					 <li class="li_import li_verify"><input id="code" name="code" value="请输入您的手机验证码" type="text"></li>
+					 <li class="li_verify_img clr">
+						<span class="li_verify_input fl">
+                        	<input value="" name="vcode" id="vcode" type="text">
+                        </span>
+						<span class="fr li_verify_icon">
+							<strong class="fr"><img id="img" src="vcode.php"></strong>
+							<a href="javascript:void(0);">换一个</a>
+						</span>
+					 </li>
+					 <li class="notice_img clr"><img src="switch_icon.jpg"></li>
+					 <li class="open_ok"><input value="" type="submit"></li>
+					</ul>
+				</div>
+				<div class="error_box posa">
+					<span class="img_box"></span>
+					<div class="go_on_but">
+						<input class="error_btn" type="button">
+					</div>
+				</div>
+			</div>
+            <div class="open_win fl">
+            	<p></p>
+				<span><input name="btn" type="button"></span>
+			</div>
+			<div class="save_win fl">
+				<span><input name="btn" type="button"></span>
+			</div>
+		</div>
+	</div>
+</form>
+<!-- }phone_bounced -->
+
+</body>
+</html>

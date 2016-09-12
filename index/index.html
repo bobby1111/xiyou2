@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="renderer" content="webkit|ie-stand|ie-comp">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="description" content="《天命西游》今日正式平移服盛装起航！六载辉煌，经典再续！《天命西游》七大职业横扫妖仙神魔，踏云飞行纵览神话风光，身怀仙器灵宝，脚踏七彩祥云，重燃西游！手握神兵坐拥江山，热血竞技吹响争霸号角，万人在线共战荣耀巅峰！豪华礼包来者有份，巅峰对决越战越嗨！">
+  <title>《天命西游》官方网站——妖精老婆等你回家！</title>
+  <link href="favicon.ico" rel="shortcut icon">
+  <script src="core.php" charset="utf-8" async="" type="text/javascript"></script><script src="core.php" charset="utf-8" async="" type="text/javascript"></script><script src="hm.js"></script><script src="jquery-1.10.2.js"></script>
+  <script src="baidustatistics.js"></script>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256794821'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1256794821' type='text/javascript'%3E%3C/script%3E"));</script>
+<link rel="stylesheet" type="text/css" href="index.css" media="all">
+</head>
+<body><span id="cnzz_stat_icon_1256794821"></span><script src="q_stat.php" type="text/javascript"></script>
+<!--HTML Header End-->
+
+
+<meta name="keywords" content="天命西游,天命西游官网,天命,天命西游下载,天命西游测试,天命西游激活码,天命西游数据平移,天命西游礼包,qq西游,qq西游数据平移,原qq西游, qq西游新服,qq西游新版本,天命西游官网下载,原qq西游,天命西游公测,qq西游换代理,qq西游新代理,qq西游官网,天命西游职业,QQ西游代理,腾讯QQ西游官网,QQ西游装备,Q西游小说,妖精老婆等你回家,隐龙战士,幽冥刺客,玄灵天师,济世医仙,翎羽弓魂,菩提尊者,修罗猎手">
+
+
+
+
+
+
+
+<script src="s1.js"></script>
+<script type="text/javascript" src="json2.js"></script>
+<script type="text/javascript" src="swfobject.js"></script>
+<script type="text/javascript" src="zeroclipboard.min.js"></script>
+<script src="ad.js"></script>
+<script type="text/javascript">
+	var base_domain = document.domain.replace(/^.*?\./,'');
+
+	document.domain = base_domain;
+	var closemsgbox = function(){
+		$(".tzclose").click();
+	};
+</script>
+<script type="text/javascript">
+
+	$(function(){
+		$("#frame_kc").attr("src","http://user."+base_domain+"/act/mobile/mobile.php");
+		$("#quick_reg").attr("src","http://user."+base_domain+"/quickreg/quickreg.html");
+
+		$('.goto_mail').click(function(){ //go to mail
+			var val = child_passport;
+			var mailDomain = val.substring(val.indexOf('@')+1);
+			var mailUrl = 'http://mail.'+mailDomain;
+			window.open(mailUrl,"_blank");
+		});
+
+		$('.guan,#error_confirm_btn').click(function(){
+			$(this).parent().hide();
+		});
+
+		$('#f_1').click(function(){
+			return;
+			swfobject.embedSWF("/flash/player.swf", "video_top", 800, 450, "10.0.0", {}, {
+				skin : '/flash/skin.swf',
+				video : 'http://dl.gulongpk.com/movie/class/fk_gulongpk_class_20141113_1.flv',
+				//thumbnail : '/images/video_img.jpg',
+				autoplay : 1
+			}, {
+				allowFullScreen : "false",
+				wmode : "transparent"
+			});
+			$('.sptc').show();
+		});
+
+		$(".spclose").click(function(){
+			$('.sptc').hide();
+		});
+
+                $("#sjpy").click(function(){
+                     window.open("/news/201512/522.html","_blank");
+                });
+		var client = new ZeroClipboard();
+		client.clip($("input[name='copy']")); //data-clipboard-text
+
+
+
+		client.on( "ready", function( readyEvent ) {
+			client.on( "aftercopy", function( event ) {
+				if(typeof event.data["text/plain"] != 'undefined'){
+					alert("复制成功");
+				}
+			});
+		});
+	});
+
+	var child_passport;
+	function success(e){
+
+		var jsonobj = eval("("+e.data+")");
+		if(jsonobj.id == 'youxiang'){
+			child_passport = jsonobj.passport;
+			$('.mail_span').text(child_passport);
+			$('.youxiang').show();
+		}
+		if(jsonobj.id == 'shouji'){
+			var c = jsonobj.giftcode;
+			child_passport = jsonobj.passport;
+			$(".phone_span").text(child_passport);
+			$("input[name='giftcode']").val(c);
+			$("input[name='copy']").attr('data-clipboard-text',c);
+			$('.shouji').show();
+		}
+		if(jsonobj.id == 'zaici'){
+//			child_passport = jsonobj.passport;
+			$(".zaici").show();
+		}
+		if(jsonobj.id == 'chucuo'){
+			$(".chucuo p.p1").text(jsonobj.message);
+			$(".chucuo").show();
+		}
+
+	}
+
+	if(window.ActiveXObject){
+		window.attachEvent('onmessage',success);
+	}else{
+		window.addEventListener("message", success, false);
+	}
+</script>
+
+
+<!--Header Begin-->
+<div class="ding_top">
+  <div class="z_top jz">
+    <div class="fr top_a">
+      <a href="http://www.tianmingxy.com/index.html" target="_top">首页</a>
+      <span>|</span>
+      <a href="http://pay.tianmingxy.com/" class="tlt" target="_top">充值</a>
+      <span>|</span>
+      <a href="http://user.tianmingxy.com/login.php" target="_top">登录</a>
+      <span>|</span>
+      <a href="http://user.tianmingxy.com/register.php?redirect=index.php" target="_top">注册</a>
+      <span>|</span>
+      <a href="http://bbs.tianmingxy.com/forum.php" class="tlt" target="_top">论坛</a>
+      <!-- <span>|</span>
+       <a href="/">登录</a><span>|</span><a class="cz" href="/">充值</a><span>|</span><a href="/">客服</a>-->
+    </div>
+  </div>
+</div>
+<!--Header End-->
+
+<div class="sptc hide">
+	<div style="width: 800px; height: 450px; float: left;">
+		<div id="video_top"></div>
+	</div>
+	<div class="spclose"></div>
+</div>
+<!--Ad Begin-->
+<div class="guanggao">
+	<div id="playBox">
+		<div class="pre"></div>
+		<div class="next"></div>
+		<div class="smalltitle">
+			<ul>
+				<li class=""></li>
+				<li class=""></li><li class=""></li><li class=""></li><li class=""></li><li class="thistitle"></li><li class=""></li>			</ul>
+		</div>
+		<ul style="left: -2498px;" class="oUlplay">
+			<li>
+					<a href="http://user.tianmingxy.com/act/invite/index.php" target="_top"><img src="sindex_img132.jpg" height="180" width="500"></a>
+				</li><li>
+					<a href="http://user.tianmingxy.com/act/application/index.php" target="_top"><img src="sindex_img135.jpg" height="180" width="500"></a>
+				</li><li>
+					<a href="http://user.tianmingxy.com/act/playersback/backhome.php" target="_top"><img src="sindex_img62.jpg" height="180" width="500"></a>
+				</li><li>
+					<a href="http://user.tianmingxy.com/act/datatransfer/index.php" target="_top"><img src="sindex_img107.jpg" height="180" width="500"></a>
+				</li><li>
+					<a href="http://user.tianmingxy.com/act/playersback/invitation.php" target="_top"><img src="sindex_img86.jpg" height="180" width="500"></a>
+				</li><li>
+					<a href="http://www.panda.tv/158404" target="_top"><img src="sindex_img130.jpg" height="180" width="500"></a>
+				</li><li>
+					<a href="http://user.tianmingxy.com/act/newversion/index.php" target="_top"><img src="sindex_img89.jpg" height="180" width="500"></a>
+				</li>		</ul>
+	</div>
+</div>
+<!--Ad End-->
+<div class="logo" style="z-index: 12; left: 640px;">
+	<a href="http://www.tianmingxy.com/index.html" target="_top" title="《天命西游》官方网站"></a>
+	<div class="jrgw">
+		<a href="http://www.tianmingxy.com/index.html" target="_top" title="《天命西游》官方网站"></a>
+	</div>
+</div>
+<div class="video-play">
+	<!--<object class id="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="90" height="76">
+    <param name="movie" value="flash/video.swf">
+    <param name="quality" value="high">
+    <param name="allowFullScreen" value="true">
+    <param name="FlashVars" value="vcastr_file=images/1234.flv&LogoText=www.lanrentuku.com&BufferTime=3&IsAutoPlay=1">
+    <embed src="flash/video.swf" allowfullscreen="true" flashvars="vcastr_file=images/1234.flv&LogoText=www.lanrentuku.com&IsAutoPlay=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="90" height="76"></embed>
+  </object>-->
+	<!--object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="90" height="76">
+		<param name="movie" value="flash/video.swf">
+		<param name="quality" value="high">
+		<param name="wmode" value="transparent">
+		<embed src="flash/video.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="96" height="76" wmode="transparent"></embed>
+	</object>-->
+</div>
+<div id="f_1" style="position: absolute; top: 240px; width: 90px; height: 76px; left: 795px; z-index: 2000;">
+	<a style="display: block; width: 90px; height: 76px;" href="javascript:void(0);"></a>
+</div>
+<!--Letter Begin-->
+<div id="but" style="z-index: 3;" class="hide"><img src="but.png"></div>
+<div id="box" class="hide"></div>
+<div class="shu hide" id="shu">
+	<div class="szuo" id="szuo"></div>
+	<div class="syou" id="syou"></div>
+	<div id="closes"></div>
+	<div class="shucon">
+		<div class="section-focus-pic" id="section-focus-pic">
+			<div class="pages" data-scro="list" log-type="toppic">
+				<ul>
+					<li class="item" style="left: 0px;">
+						<div class="ye1 ye">
+							<h2>亲爱的《QQ西游》老玩家们:</h2>
+							<p>也许我们彼此还比较陌生，但我们依旧感谢您带着对《QQ西游》的一份不舍来到这里！</p>
+							<p>由于代理合同到期，原《QQ西游》运营权正式转交至我们，并正式更名为《天命西游》。</p>
+							<p>未来，我们将本着玩家利益大于一切、游戏至上的公司准则，努力为您打造多样化的版本更新、舒适顺畅的游戏环境、优质快捷的用户服务！我们将视《天命西游》为珍宝细心呵护照料，力争为您呈现崭新的游戏体验！</p>
+							<div class="zc jz">
+								<img src="zc.jpg">
+							</div>
+							<div class="py">
+								<span class="qian"></span>
+								<h3>一、《QQ西游》至《天命西游》老玩家数据平移 </h3>
+								<span class="hou"></span>
+							</div>
+							<div class="clear"></div>
+							<div class="dwm">
+								<p class="wm">我们不惜重金从老运营手中获得所有玩家数据，完成数据平移，这需要您的积极配合；当然我们会将它做的极为简单！</p>
+							</div>
+							<p>平移内容包括：角色、装备、道具、金钱、元宝等全部数据</p>
+							<p>预计平移专题开启时间：2016年3月（有效期6个月）</p>
+							<p>数据平移方式：</p>
+							<p>1．在腾讯《QQ西游》官网数据平移页面登陆，领取“数据对接码”；</p>
+							<p>2．至《天命西游》官网注册账号；</p>
+							<p>3．在《天命西游》数据平移活动专题中，按提示完成数据平移；</p>
+							<p>4．小提示：平移期间会有更多豪礼等着您哦！拉好友回归更有意外惊喜^_^！</p>
+						</div>
+					</li>
+					<li class="item">
+						<div class="ye2 ye">
+							<div class="py1">
+								<span class="qian"></span>
+								<h3>二、全面提升等级上限</h3>
+								<span class="hou"></span>
+							</div>
+							<div class="clear"></div>
+							<p>未来，我们做的不只是数据对接，玩家期待已久的全新等级上限同期开启！同时还有更多全新游戏内容、游戏玩法，待君体验！</p>
+							<div class="py1"><span class="qian"></span>
+								<h3>三、开设全新地图、全新任务/副本、时装/坐骑、稀有套装</h3>
+								<span class="hou"></span>
+							</div>
+							<div class="clear"></div>
+							<p>开放全新任务、大型多人副本、更萌更帅更夸张的时装造型、全新大尺寸飞行坐骑、高等级职业套装、高“功率”陆地坐骑等。</p>
+							<p>为了让大家有更多全新的游戏体验，我们开放了地图北侧全新的区域，增加相对原地图三分之一大小的一片新大陆，更多探险更多荣耀等你极速前往！</p>
+							<div class="py1">
+								<span class="qian"></span>
+								<h3>四、开放多种线上活动，不再整天发呆无聊赏风景</h3>
+								<span class="hou"></span>
+							</div>
+							<div class="clear"></div>
+							<div class="dwm1">
+								<p class="wm1">多种线上活动，全天候24小时轮番上阵；每小时，每天，每周都有活动！打宝、奇遇、选美、PK、BOSS战，经验道具装备宠物各种奖励等你拿，绝对让你玩到手软赚到钵满盆满！</p>
+								<p class="wm1">同时，定期开放玩家征集，定期植入玩家创意互动，增加玩家与研发互动性，开放绝版道具奖励，增加玩家互动积极性。现在起让你的脑洞大开，和大家一起“玩”策划！</p>
+							</div>
+						</div>
+					</li>
+					<li class="item">
+						<div class="ye3 ye">
+							<div class="py1">
+								<span class="qian"></span>
+								<h3>五、调整不合理道具，严厉打击外挂私服</h3>
+								<span class="hou"></span>
+							</div>
+							<div class="clear"></div>
+							<p>本次更新我们针对一部分道具定价进行了调整，让他不管是看起来还是事实上都更加便宜亲民，平移过来的元宝看样子是要升值啦！因为它将可以为你买到更多的东西！</p>
+							<p>同时，根据广大玩家多年来的“积怨”，我们将对游戏外挂进行全面“清场”，实现在不影响游戏公平性的前提下，将部分辅助功能游戏内实现或提供官方插件。对历史遗留严重影响平衡的游戏外挂给予功能屏蔽，使其无法在《天命西游》中继续作威作福！</p>
+							<div class="py1">
+								<span class="qian"></span>
+								<h3>六、重金购买物理机，确保游戏顺畅</h3>
+								<span class="hou"></span>
+							</div>
+							<div class="clear"></div>
+							<p>想必大家早已经受够了服务器的卡顿、掉线、宕机等问题的困扰了，所以当我们得知玩家苦楚之后，决定花重金部署搭载16核心高性能最新版英特尔 专业CPU的高配置全新服务器，现在它们正静静的躺在南北两大分区机房里，整装待发即将为大家开启它们“职业生涯”的第一次！</p>
+							<p>同时，我们用了比千兆光纤更快的无限流量带宽，采用CDN加速技术让它相当于将我们的服务器就放在了您的家门口，这避免了长途速度损耗，当然速度会超级快！</p>
+							<p>相信未来独立分区无限流量带宽与高配置服务器，一定会为玩家们提供真正畅快的游戏体验！</p>
+							<div class="py1">
+								<span class="qian"></span>
+								<h3>七、24h On Call 的1V1独享客服</h3>
+								<span class="hou"></span>
+							</div>
+							<div class="clear"></div>
+							<p>给玩家带来的什么样的服务体验，标志着运营团队乃至公司对此产品的重视程度，我们已经将客服团队全面扩充，未来将对《天命西游》玩家实现独享服务：</p>
+							<p>1．客服电话随打随通随接，问题即出即解；</p>
+							<p>2．电话、在线、Q群、论坛、公众号多渠道同时接管；</p>
+							<p>3．专人专用，定期回访；</p>
+						</div>
+					</li>
+					<li class="item">
+						<div class="ye4 ye">
+							<div class="xx">
+								<img src="xx.jpg">
+							</div>
+							<p>在此感谢一直以来支持《QQ西游》的玩家，一个西游之门即将关闭，另一个全新的西游之门即将为您开启！</p>
+							<p>强力的运营团队正在火力全开，我们竭力使其重获新生，为您呈现充满活力《天命西游》！ </p>
+							<p>未来，相信通过我们的努力，西游的老玩家们都能对它重燃希望！</p>
+							<p>未来，我，在这里等你归来！</p>
+							<div class="py1">
+								<span class="qian"></span>
+								<h3>《天命西游》早知道快速通道</h3>
+								<span class="hou"></span>
+							</div>
+							<div class="clear"></div>
+							<div class="dh4">
+								<h4>
+									① 游戏论坛：
+									<a href="http://bbs.tianmingxy.com/" target="_top">http://bbs.tianmingxy.com</a>
+								</h4>
+								<h4>
+									②玩家交流QQ群：
+									<span>壹:280135232</span>
+									<span>贰:53132518</span>
+								</h4>
+								<p>
+									<span>叁:187177971</span><!--<span>肆:53132518</span> -->
+								</p>
+								<!--<p><span>伍:53132518</span><span>陆:53132518</span> </p>-->
+								<h4>③ 微信公众号：tianmingxiyou</h4>
+							</div>
+							<div class="swx">
+								<img src="swx.jpg">
+							</div>
+							<h5>《天命西游》运营团队<br><span> 2015年12月</span></h5>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="controler" data-scro="controler">
+				<b id="b1" class="down">1</b>
+				<b id="b2">2</b>
+				<b id="b3">3</b>
+				<b id="b4">4</b>
+				<!--<div class="b1"><b class="down">1</b></div>
+          <div class="b2"><b>2</b></div>
+          <div class="b3"><b>3</b></div>
+          <div class="b4"><b>4</b></div>-->
+			</div>
+			<div class="controler2" data-scro="controler2">
+				<a href="javascript:;" class="prev">
+					<i></i>
+				</a>
+				<a href="javascript:;" class="next">
+					<i></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Letter End-->
+<!--Test Notification Begin-->
+<div class="phone_box" style="display: none;">
+	<div class="tzclose"></div>
+	<div class="phone_title fr"></div>
+	<!-- <div class="tzclose"></div>-->
+	<!-- 从这里开始外调的代码{ -->
+	<iframe id="frame_kc" scrolling="no" src="index_1.html" style="border: medium none; margin-top: -1px; overflow: hidden;" allowtransparency="true" height="656px" width="870px" frameborder="no"></iframe>
+</div>
+<!--Test Notification End-->
+<div id="kc" style="display: none;"></div>
+<div class="close cp"></div>
+<div class="kaiqi cp hide"></div>
+<div class="content">
+	<div class="flash" style="z-index: -2;"> <!--1.设置FLASH为底层-->
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" height="640" width="1000">
+			<param name="movie" value="flash/flash.swf">
+			<param name="quality" value="high">
+			<param name="wmode" value="transparent">
+			<!--2.必须把FLASH设置为透明-->
+			<!--<embed src="flash/flash.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="1000" height="640" wmode="transparent"></embed>-->
+		</object>
+	</div>
+	<div class="transparent " style="margin-top: 30px; height: 1052px;">
+		<div class="zcon">
+			<div class="sjpy">
+				<div class="py">
+					<a href="http://user.tianmingxy.com/act/datatransfer/index.php" title="《天命西游》数据平移" target="_top"><input class="btn" type="button"></a>
+				</div>
+				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" height="265" width="260">
+					<param name="movie" value="flash/flash_sindex_sl.swf">
+					<param name="quality" value="high">
+					<param name="wmode" value="transparent">
+					<!--2.必须把FLASH设置为透明-->
+					<embed src="flash_sindex_sl.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" height="265" width="260">
+				</object>
+			</div>
+			<!--height="340"-->
+			<iframe id="quick_reg" class="header" src="index_2.html" border="0" vspace="0" hspace="0" marginheight="0" marginwidth="0" allowtransparency="true" scrolling="no" height="384" width="100%" frameborder="0"></iframe>
+			<a href="http://www.tianmingxy.com/download/index.html" target="_top" title="《天命西游》客户端下载" class="now" id="xiazai">
+				<p class="ljzc">马上下载</p>
+			</a>
+			<button class="btn2" id="kaice" style="position: relative; top: 5px;">
+				<p class="ljzc">开测通知</p>
+			</button>
+			<div class="lianxi">
+				<ul>
+					<li>
+						<a class="weixin current"></a>
+						<span class="weixin_img active1">
+							<strong>官方微信<br>tianmingxiyou</strong>
+						</span>
+					</li>
+					<li class="qq1">
+						<a class="qq "></a>
+						<span class="active" style="display: none;">
+							<p class="act_top"></p>
+							<div class="act_center">
+								<strong>玩家交流QQ群：</strong>
+								<span>壹:&nbsp;&nbsp;280135232</span>
+								<span>贰:&nbsp;&nbsp;53132518</span>
+								<span>叁:&nbsp;&nbsp;187177971</span>
+								<!--<span>叁:  187177971</span>
+                <span>叁:  187177971</span>
+                <span>叁:  187177971</span>-->
+							</div>
+							<p class="act_bottom"></p>
+						</span> </li>
+					<li>
+						<a class="luntan" href="http://bbs.tianmingxy.com/forum.php" title="《天命西游》官方论坛" target="_top"></a>
+						<span class="luntan_img"></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Mobile Phone Register Succeed Begin-->
+<div class="shouji hide">
+	<h1>恭喜您，注册成功！</h1>
+	<p class="li">送您一份【天命见面礼】！</p>
+	<p class="line"></p>
+	<p class="p1 p2">您的通行证账号：<span class="phone_span"></span></p>
+	<div class="clear"></div>
+	<div>
+		<p class="p1 p2">天命见面礼：</p>
+		<input name="giftcode" class="ma" value="123456789abcdefjhijk" disabled="disabled" type="text">
+		<input name="copy" class="copy" value="复制" type="button">
+	</div>
+	<input id="sjpy" class="py" value="数据平移" type="button">
+	<div class="wxts">
+		<p class="p1">温馨提示：</p>
+		<p class="p1">凭此兑换码前往<a href="http://user.tianmingxy.com/codeexchange.php" target="_top">兑换码中心</a>进行兑换，<br>登录游戏后，于邮箱内领取。</p>
+	</div>
+	<div class="guan"></div>
+</div>
+<!--Mobile Phone Register Succeed End-->
+<!--Mail Register Succeed Begin-->
+<div class="youxiang hide">
+	<h1>感谢注册，请立即激活账号！</h1>
+	<p class="line"></p>
+	<p class="p1">请您登录邮箱<span class="mail_span">131236546@qq.com</span>根据确认邮件操作即可；</p>
+	<input class="goto_mail check" value="立即查看邮箱" type="button">
+	<div class="guan"></div>
+</div>
+<!--Mail Register Succeed End-->
+<!--Account Already Registered Begin-->
+<div class="chucuo hide">
+	<h1>出错了！</h1>
+	<p class="line"></p>
+	<div style="text-align: center;">
+		<p style="display: inline; color: rgb(140, 143, 198); font-size: 13px; font-family: &quot;宋体&quot;;">账号已被注册 </p>
+	</div>
+	<div class="clear"></div>
+	<input class="check" id="error_confirm_btn" value="确定" type="button">
+	<div class="guan"></div>
+</div>
+<!--Account Already Registered End-->
+<!--Send E-Mail Again Begin-->
+<div class="zaici hide">
+	<h1>激活邮件已再次发送！</h1>
+	<p class="line"></p>
+	<p class="p1">请查看您的邮箱！</p>
+	<div class="clear"></div>
+	<input class="goto_mail check" value="立即查看邮箱" type="button">
+	<div class="guan"></div>
+</div>
+<!--Send E-Mail Again End-->
+<!--<div class="footer">
+<iframe class="header" src="bottom.html" height="200" width="100%" border="0" frameborder="0" vspace="0" hspace="0" marginheight="0" marginwidth="0" allowtransparency="true" scrolling="no"></iframe>
+</div>-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256794821'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1256794821' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1256794821"></span><script src="q_stat.php" type="text/javascript"></script>
+
+<!--Footer Begin-->
+
+<div class="footer">
+  <div class="zfoot jz">
+    <div class="fl footl">
+      <span>
+        <img class="img1" src="footlogo_linguo.png">
+        <a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4028c08c518ba15a01519fc65a342276" target="_top">
+          <img src="jww_logo.png">
+        </a>
+      </span>
+    </div>
+    <div class="fl footr">
+      <p>
+        <a href="http://www.tianmingxy.com/st/about_us/index.html" target="_top">关于我们</a>
+        <span>|</span>
+        <a href="http://www.tianmingxy.com/st/jzjhgc/index.html" target="_top">家长监护</a>
+        <span>|</span>
+        <a href="http://www.tianmingxy.com/st/about_us/contact.html" target="_top">联系我们</a>
+      </p>
+      <p>京ICP备12026209-3<span>|</span>京公海网安备11010802020146号</p>
+      <p>京网文[2015]2223-418<!--<span>|</span>新广出审（2014）1558号</p>
+      <p>文网进字[2014]0127号</p>-->
+    </p></div>
+    <div class="clear"></div>
+    <p class="tip">健康游戏提示：抵制不良游戏 拒绝盗版游戏 注意自我保护 谨防受骗上当 适度游戏益脑 沉迷游戏伤身 合理安排时间 享受健康生活</p>
+  </div>
+</div>
+<!--Footer End-->
+<script type="text/javascript" src="wanjia.js"></script>
+
+<div style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" type="application/x-shockwave-flash" data="zeroclipboard_001.swf" height="100%" width="100%"><param name="allowScriptAccess" value="sameDomain"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=www.tianmingxy.com%2C%2F%2Fwww.tianmingxy.com%2Chttp%3A%2F%2Fwww.tianmingxy.com&amp;swfObjectId=global-zeroclipboard-flash-bridge"></object></div></body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="error.inc.js"></script>
+<script type="text/javascript" src="quickreg.js"></script>
+<script type="text/javascript" src="json2_001.js"></script>
+<script type="text/javascript" src="jquery.mobile.code.js"></script>
+<script type="text/javascript" src="zeroclipboard.min_001.js"></script>
+
+<script type="text/javascript">
+	var keydownNum = -1;
+	var mousedownHappened = false;
+	
+	var base_domain = document.domain.replace(/^.*?\./,'');
+	document.domain = base_domain;
+	
+	$(function(){
+		$(".dzc").regchecker();
+		
+		$('#button').jSendMobileCode({
+			'mobile' : 'passport',
+			'msgid' : '6',//MESSAGE_MOBILE_REGISTER_SEND_CODE
+			'codeflag' : true,
+			'codename' : 'mobile_regist_code',
+			'runtime' : function(waitstr){$('#button').val(waitstr);$('#button').css({'background':'#333333'})},
+			'finish' : function(){$('#button').css({'background':'#282dab'})},
+			'code' : function(){return $('#vcode_forsms').val()},
+			'prompt' : function(msg){
+						alert(msg);
+						//mobile.nextAll('strong').html(msg).show();
+		 			},
+		 	'before' : function(){
+					 	var ret = null;
+				 		$.ajax({
+			                url : '/checkcode.php?code=' + $("#vcode_forsms").val(),							                  
+			                async : false,
+			                type : "GET",
+			                dataType : 'json',
+			                success : function (data){
+			               	   ret = data.result;
+			                }
+				    	});
+				    	
+				    	if(ret){
+				    		$("#smscode_div").show();
+				    		$("#vcode_div").hide();
+				    	}
+				    	else{
+				    		$("#vcode_forsms").next().children().attr('src', 'vcode.php' + '?' + Math.random());
+				    		$("#vcode_forsms").val('');
+				    		$("#code").val('');
+				    		$("#smscode_div").hide();
+				    		$("#vcode_div").show();
+				    		//alert('请先填写图形验证码');
+				    	}
+					    	
+				 		return ret;
+				 	}
+	 			});
+
+		$(".dzc span.xingming,.dzc span.yanzheng,.dzc span.zqsfz").click(function(){
+			//alert($(this).html());
+			
+			$(this).prevAll('input').last().focus();
+		});
+		
+        $('#mail_reg_suc p.ll span#resend_btn').click(function(){ //resend reg mail
+        	 $('.guan').each(function(){
+             	$(this).parent().hide();
+             });
+        	
+        	$.post('/register.php?redirect=mailprompt.php&submit&accountType=mail&resend', function(data) {		
+				if (data.result) {					
+					//window.location.href = data.redirect;
+					//$(".zaici").show();
+					window.parent.postMessage("{id:'zaici'}",'*');
+				} else {
+					showError(data.message);
+					//$(".chucuo p.p1").text(data.message);
+					//$(".chucuo").show();
+					//alert(data.message);
+				}
+			}, 'json');
+        	
+        });
+        
+        $('.goto_mail').click(function(){ //go to mail
+        	var val = $('#passport').val();
+        	var mailDomain = val.substring(val.indexOf('@')+1);
+        	var mailUrl = 'http://mail.'+mailDomain;
+        	window.open(mailUrl,"_blank");
+        });        
+        
+//        $('.guan').click(function(){
+//        	$(this).parent().hide();
+//        });
+        
+        $('#reload').click(function(){
+        	window.location.reload();
+        	window.parent.location.reload();
+        });
+		
+		$("input[name=repeat]").keydown(function(e){
+
+			if($("#smscode_div").is(":hidden")){
+				if(e.keyCode==13){ //avoid process for return key	
+					$("input[name=repeat]").blur();
+					$("#btn1").trigger("click");
+				}
+			}
+		});
+		
+		$("input[name=smscode]").keydown(function(e){			
+			if($("#smscode_div").is(":visible")){
+				if(e.keyCode==13){ //avoid process for return key
+					$("input[name=smscode]").blur();
+					$("#btn1").trigger("click");
+				}
+			}
+		});
+		
+		$("input[name=vcode]").keydown(function(e){	
+			if(e.keyCode==13){ //avoid process for return key
+				$("input[name=vcode]").blur();
+				$("#btn1").trigger("click");
+			}
+		});
+		
+		$("input[name=passport]").keyup(function(e){
+			
+			if(e.keyCode==13){ //avoid process for return key
+				
+				return null;
+			}
+			if(e.keyCode == 38){
+				
+				 //var start = this.selectionStart, end = this.selectionEnd;
+				 //alert(end);
+				 //start = $(this).val().length;
+				 // restore from variables...
+				 //this.setSelectionRange(start, start);
+				 return false; //keep cusor postion
+			}
+			//keydownNum = 0;
+			var val = $(this).val();
+			var tipLen = $(".shurutishi p:gt(0)").length;
+			
+			$(".shurutishi p:gt(0)").each(function(){$(this).show();}); //reset list visible
+			
+			if(val!=''){
+				if(val.indexOf('@')>0){
+					var mailDomain = val.substring(val.indexOf('@')); //with @
+					var mailId = val.substring(0,val.indexOf('@'));
+					var p =new RegExp('^'+mailDomain+'.*$');
+					$(".shurutishi p:gt(0)").each(function(){
+						//alert(p);
+						if(p.test($(this).attr('data'))){
+							//alert(mailId+$(this).attr('data'));
+							$(this).text(mailId+$(this).attr('data'));
+							$(this).show();
+						}
+						else{
+							$(this).hide();
+							tipLen--;
+						}
+					});
+				}else{
+					$(".shurutishi p:gt(0)").each(function(){
+						$(this).text(val+$(this).attr('data'));
+					});
+				}
+				
+				if(tipLen>0){
+					if(!/^(?:(13|14|15|17|18).*)$/i.test(val)){
+						//show mail assist
+						$(".shurutishi").show();
+					}else{
+						$(".shurutishi").hide();
+					}
+			  	}else{
+			  		$(".shurutishi").hide();
+			  	}
+			}else{
+				$(".shurutishi").hide();
+			}
+		});
+		
+		$('.shurutishi p:gt(0)').mousedown(function() {
+		    mousedownHappened = true;
+		});
+
+		$(".shurutishi p:gt(0)").click(function(){			
+			//alert($(this).text());
+			//$('#passport').blur();
+			$('#passport').val($(this).text());			
+			$(".shurutishi").hide();			
+			resetSuggestion();	
+			$('#passport').blur();
+			$('#password').focus();
+		});
+		
+		var resetSuggestion = function(){
+			keydownNum = -1;
+			$(".shurutishi p:gt(0)").each(function(){
+				$(this).val($(this).attr('data'));
+				$(this).show();				
+			});
+		}
+		
+		//keep mouseover effect
+		$(".shurutishi p:gt(0)").hover(function(){ 
+			$(this).css({'background':'#10063a'});
+		},function(){
+			$(this).css({'background':'#20125f'});
+		});
+		
+		$("input[name=passport]").keydown(function(e){
+			
+			if(e.keyCode==40){
+				//alert($(".shurutishi p:visible:gt(0)").eq(keydownNum).text());
+				var tipLen = $(".shurutishi p:visible:gt(0)").length;
+				keydownNum++;
+				if(keydownNum >= tipLen)
+					keydownNum = -1;
+				
+				$(".shurutishi p:visible:gt(0)").eq(keydownNum).css({'background':'#10063a'});
+				$(".shurutishi p:visible:gt(0)").eq(keydownNum).siblings().css({'background':'#20125f'});
+			}
+			
+			if(e.keyCode==38){
+				 //alert($(".shurutishi p:visible:gt(0)").eq(keydownNum).text());
+				 //var start = $(this).val().length;
+				 // restore from variables...
+				 //this.setSelectionRange(start, start);
+				
+				var tipLen = $(".shurutishi p:visible:gt(0)").length;
+				keydownNum--;
+				if(keydownNum < 0)
+					keydownNum = tipLen - 1;
+				
+				$(".shurutishi p:visible:gt(0)").eq(keydownNum).css({'background':'#10063a'});
+				$(".shurutishi p:visible:gt(0)").eq(keydownNum).siblings().css({'background':'#20125f'});
+				return false; //keep cusor postion
+			}
+			
+			if(e.keyCode==13){
+				$(".shurutishi p:visible:gt(0)").eq(keydownNum).click();
+			}
+		});
+		
+		
+		var client = new ZeroClipboard();
+    	client.clip($("input[name='copy']")); //data-clipboard-text
+    	
+    	
+    	
+    	client.on( "ready", function( readyEvent ) {
+    		  client.on( "aftercopy", function( event ) {
+    		    if(typeof event.data["text/plain"] != 'undefined'){                		 	
+      		    	alert("复制成功");
+    		    }
+    		  });
+    		});		
+	});
+	
+	function showError(msg){		
+		window.parent.postMessage(
+				JSON.stringify({id:'chucuo',message:msg}),'*');
+	}
+	
+	function nextCode(){
+		$('#code').attr('src', '/vcode.php?' + Math.random());
+	}
+</script>
+
+<link rel="stylesheet" type="text/css" href="index_2.css" media="all">
+</head>
+<body>
+<div class="new">
+<p class="zh">账号注册<span>领【天命见面礼】</span></p>
+      <div class="dzc"> 
+        <!-- 默认-->
+        <div id="reg_step_1" class="ljzh">
+          <div style="position: relative; z-index: 2;">
+          	<input id="passport" name="passport" tabindex="101" class="shj" value="" autocomplete="off" type="text">            
+            <div class="shurutishi" style="display: none;">
+              <p>请选择或继续输入……</p>
+              <p data="@qq.com">@qq.com</p>
+              <p data="@vip.qq.com">@vip.qq.com</p>
+              <p data="@163.com">@163.com</p>              
+              <p data="@sina.cn">@sina.cn</p>
+              <p data="@sina.com">@sina.com</p>
+              <p data="@sohu.com">@sohu.com</p>              
+              <p data="@126.com">@126.com</p>
+            </div>
+            <span class="mr xingming" style="display: block;">请输入手机号/QQ邮箱</span>
+          </div>
+          <div style="position: relative;">
+            <input id="password" name="password" tabindex="101" class="txz " value="" type="password">
+            <span class="xingming mr" style="display: block;">通行证密码</span>
+          </div>
+          <div style="position: relative;">
+            <input id="repeat" name="repeat" tabindex="102" class="txz " value="" type="password">
+			<span class="xingming mr" style="display: block;">确定密码</span>             
+          </div>
+		  <div id="vcode_div" style="display: none;">
+            <input value="" id="vcode_forsms" name="vcode" tabindex="103" class="txz2" type="text">
+            <span class="yanzheng mr" style="display: block;">请输入验证码</span>          
+            <img id="code_forsms" src="vcode_001.php" onclick="$(this).attr('src', '/vcode.php?' + Math.random())" style="padding: 5px;">
+          </div>
+		  <div id="smscode_div" style="display: none;">
+			  <input value="" id="smscode" name="smscode" tabindex="104" class="txz2" type="text"> 
+			  <span class="yanzheng mr" style="display: block;">短信验证码</span> 
+			  <input id="button" class="txz4 cp" value="获取验证码" type="button">
+		  </div>
+		  <div class="clear"></div>                    
+          <div class="fuxuan">
+            <input id="cr" checked="checked" disabled="disabled" type="checkbox">
+            <label class="la" for="cr">接受并同意<a href="http://user.tianmingxy.com/agreement.html" target="_top" style="text-decoration: underline;">《卓易通用户协议》</a></label>
+          </div>
+        </div>
+         <!-- 提示-->
+        <div id="reg_step_2" class="ljzh hide">
+          <div style="position: relative;">
+            <input value="" id="realname" name="realname" tabindex="201" class="shj" type="text">
+            <!-- <span style=" position:absolute; margin-top:8px; left:18px;"><img src="images/register/ren.png"></span>--> 
+            <span class="xingming mr" style="display: block;">请输入真实姓名</span> </div>
+          <div style="position: relative;">
+            <input value="" id="idcard" name="idcard" tabindex="202" class="sfz " type="text">
+            <span class="zqsfz mr" style="display: block;">请输入身份证</span> </div>
+          <div style="position: relative;">
+            <input value="" id="vcode" name="vcode" tabindex="203" class="txz2" type="text">
+            <span class="yanzheng mr" style="display: block;">请输入验证码</span>          
+            <img id="code" src="vcode_001.php" onclick="$(this).attr('src', '/vcode.php?' + Math.random())">
+          </div>
+          <div class="clear"></div>
+          <a href="javascript:void(0);" class="back"> 返回上一步</a> <a id="nextcode" href="javascript:nextCode();" class="next">看不清？换下一张</a>
+
+        </div> 
+          
+        <!-- 成功注册-->
+        <div id="reg_suc" class="ljzh hide">
+          <p class="gx">恭喜您，注册成功！</p>
+          <p class="ll">您的通行证账号：</p>
+          <p class="phone_span gx"></p>
+          <p class="ll">天命见面礼：</p>
+          <input name="giftcode" class="li beijing" value="" disabled="disabled" type="text">
+          <input name="copy" class="fz" value="复制" type="button">
+          <div class="clear"></div>
+          <p class="ll">温馨提示：</p>
+          <p class="ll">凭此兑换码前往<a href="http://user.tianmingxy.com/codeexchange.php" target="_top">兑换码中心</a>进行兑换，<br>登录游戏后，于邮箱内领取。
+          <!-- a href="http://www.tianmingxy.com/" target="_blank">兑换中心</a-->
+            </p>
+          <div class="line"></div>           
+        </div>
+        
+        <!--邮箱注册成功-->
+        
+        <div id="mail_reg_suc" class="ljzh hide">
+          <p class="gx">验证邮箱已发出</p>
+          <p class="ll">请48小时内登录邮箱：<span class="mail_span">131236546@qq.com</span>根据邮箱提示操作。</p>
+          <button class="goto_mail check"><p>立即查看邮箱</p></button>
+          <div class="clear"></div>
+          <p class="ll">还没收到确认邮件？</p>
+          <p class="ll">1.尝试到广告邮件，垃圾邮件目录里找找看。</p>
+          <p class="ll">2.再次<span id="resend_btn">发送注册确认邮件。</span></p>
+          <p class="ll">3.如果邮件没找到请<span id="reload">重新注册</span>。</p>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div>
+      	  <button id="btn1" tabindex="105">
+	      <p class="ljzc cp">立即注册</p>
+	      </button>
+	      <div class="line"></div>
+      </div> 
+      </div>         
+
+<div style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" type="application/x-shockwave-flash" data="zeroclipboard.swf" height="100%" width="100%"><param name="allowScriptAccess" value="sameDomain"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=user.tianmingxy.com%2C%2F%2Fuser.tianmingxy.com%2Chttp%3A%2F%2Fuser.tianmingxy.com&amp;swfObjectId=global-zeroclipboard-flash-bridge"></object></div></body>
+</html>

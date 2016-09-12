@@ -1,0 +1,44 @@
+/* ::::: http://user.tianmingxy.com/act/mobile/css/phone.css ::::: */
+
+.call_box { width: 870px; height: 656px; clear: both; background: transparent url('kaice_layer.png') no-repeat scroll 0% 0%; }
+.call_right { width: 357px; height: 541px; padding: 95px 0px 0px 78px; margin-top: 92px; margin-left: 147px; }
+.notice_but { width: 140px; height: 40px; margin: 263px 0px 0px 45px; cursor: pointer; }
+.inform_box { width: 221px; height: 369px; display: none; }
+.fill_in_inform { top: 1px; left: 0px; width: 221px; height: 368px; background: transparent url('circular_bead_bg.jpg') no-repeat scroll left top; z-index: 2; }
+.fill_in_inform ul { width: 217px; margin: 0px auto; padding-top: 10px; }
+.fill_in_inform .li_text { font-family: "黑体"; font-size: 14px; color: rgb(102, 102, 102); text-align: left; padding-left: 15px; line-height: 32px; }
+.fill_in_inform .li_import { padding-bottom: 13px; border-bottom: 1px solid rgb(217, 217, 217); margin-bottom: 13px; }
+.fill_in_inform .li_import input { display: block; width: 202px; height: 30px; border: medium none; background: transparent url('phone_input_bg.jpg') no-repeat scroll center top; margin: 0px auto; text-align: center; color: rgb(153, 153, 153); line-height: 30px; }
+.fill_in_inform .li_affirm_but input { display: block; cursor: pointer; width: 202px; height: 30px; line-height: 30px; text-align: center; border: medium none; background: transparent url('phone_inputbut_bg.jpg') no-repeat scroll center top; margin: 0px auto; color: rgb(102, 102, 102); }
+.fill_in_inform .li_verify { border-bottom: medium none; padding-top: 10px; margin-bottom: 0px; }
+.li_verify_img { border-bottom: 1px solid rgb(217, 217, 217); }
+.li_verify_img .li_verify_input { width: 123px; height: 50px; padding: 5px 7px 0px 9px; }
+.li_verify_img .li_verify_input input { display: block; border: medium none; width: 123px; height: 30px; line-height: 30px; text-align: center; color: rgb(153, 153, 153); background: transparent url('phone_verify_bg.jpg') no-repeat scroll center top; }
+.li_verify_img .li_verify_icon { padding-right: 6px; width: 72px; }
+.li_verify_img .li_verify_icon a, .li_verify_img .li_verify_icon a:visited, .li_verify_img .li_verify_icon a:hover, .li_verify_img .li_verify_icon a:active { float: right; color: rgb(153, 153, 153); text-decoration: underline; }
+.notice_img img { margin: 12px auto 25px; }
+.open_ok input { display: block; width: 202px; height: 30px; border: medium none; margin: 0px auto; cursor: pointer; background: transparent url('open_ok.jpg') no-repeat scroll center top; }
+.error_box { width: 211px; height: 111px; background: transparent url('error_bg.png') repeat scroll center top; top: 93px; left: 6px; z-index: 4; padding-top: 20px; display: none; }
+.error_box .img_box { width: 100%; padding-bottom: 12px; display: block; color: rgb(255, 255, 255); text-align: center; min-height: 47px; }
+.go_on_but input { display: block; width: 140px; height: 31px; cursor: pointer; margin: 0px auto; background: transparent url('go_on_but.jpg') no-repeat scroll center top; border: medium none; }
+.open_win { width: 221px; height: 189px; background: transparent url('open_win.png') no-repeat scroll center top; padding-top: 120px; margin-top: 46px; display: none; }
+.save_win { width: 221px; height: 190px; background: transparent url('save_win.png') no-repeat scroll center top; padding-top: 120px; margin-top: 46px; display: none; }
+.save_win span input { width: 220px; height: 31px; margin: 0px auto; cursor: pointer; background: transparent url('go_on_ok_but.jpg') no-repeat scroll center top; border: medium none; }
+.open_win span input { width: 220px; height: 31px; margin: 0px auto; cursor: pointer; background: transparent url('go_on_ok_but2.jpg') no-repeat scroll center top; border: medium none; }
+.open_win p { text-align: center; color: rgb(15, 119, 190); margin-bottom: 10px; }
+/* ::::: http://user.tianmingxy.com/act/mobile/css/base.css ::::: */
+
+body, diy, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { margin: 0px; padding: 0px; }
+body { font-size: 12px; }
+fieldset, img { border: 0px none; }
+img { display: block; }
+:focus { outline: 0px none; }
+ol, ul { list-style: outside none none; }
+body { line-height: 1.5; font-family: "Microsoft Yahei UI","Microsoft Yahei","宋体","黑体",Arial; }
+.clr::after { content: "."; display: block; height: 0px; clear: both; visibility: hidden; }
+.clr { display: inline-block; }
+.clr { display: block; }
+.fl { float: left; }
+.fr { float: right; }
+.posr { position: relative; }
+.posa { position: absolute; }
